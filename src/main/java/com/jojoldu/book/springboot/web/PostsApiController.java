@@ -23,8 +23,9 @@ public class PostsApiController {
 
     private final PostsService postsService;
 
-    @PostMapping
+    @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto){
+        System.out.println("등록");
         return postsService.save(requestDto);
     }
 
@@ -34,7 +35,7 @@ public class PostsApiController {
         return postsService.update(id, requestDto);
     }
 
-    @GetMapping
+    @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto findById(@PathVariable Long id){
         return postsService.findById(id);
     }
